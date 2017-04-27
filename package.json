@@ -1,0 +1,29 @@
+{
+  "name": "my-stats-cloud-function",
+  "version": "0.0.1",
+  "description": "This is cloud function to store my-stats extension data in Google datastore.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinaymavi/my-stats-cloud-function.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "cloud-function",
+    "google-cloud",
+    "google-datastore"
+  ],
+  "author": "vinaymavi@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vinaymavi/my-stats-cloud-function/issues"
+  },
+  "homepage": "https://github.com/vinaymavi/my-stats-cloud-function#readme",
+  "dependencies": {
+    "@google-cloud/datastore": "^1.0.0",
+    "google-cloud": "^0.53.0"
+  }
+}
