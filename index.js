@@ -21,11 +21,11 @@ exports.set = function set(req, res) {
 };
 
 function saveEntity(data) {
-    console.log("Auto generated key = "+datastore.int(10).toString())
+    console.log("Auto generated key = "+datastore.int(10).toString());
     const entity = {
         key: createKey(data.startTime),
         data: data
-    }
+    };
 
     datastore.save(entity)
         .then(()=> {
