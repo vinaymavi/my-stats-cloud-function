@@ -36,5 +36,5 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 .idea/
-beta-my-stats-ext-f5118d02238d.json
 package-lock.json
+/src/client_secret.json

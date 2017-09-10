@@ -6,7 +6,7 @@ const Website = require("../src/entities/Website");
 const assert = chai.assert;
 describe("Website", ()=> {
     it("Should Empty", (done)=> {
-        const web = new Website();
+        const web = new Website({"site": ""});
         web.list()
             .then((results)=> {
                 const entities = results[0];
@@ -21,13 +21,7 @@ describe("Website", ()=> {
     it("Insert", ()=> {
         assert.equal(1, 1);
     });
-    it("Delete", ()=> {
-        assert.equal(1, 1);
-    });
     it("Bulk Insert", ()=> {
-        assert.equal(1, 1);
-    });
-    it("Bulk Delete", ()=> {
         assert.equal(1, 1);
     });
     it("Should be valid", ()=> {
@@ -40,9 +34,6 @@ describe("Website", ()=> {
         assert.equal(1, 1);
     });
     it("Find by device id", ()=> {
-        assert.equal(1, 1);
-    });
-    it("Find by Name", ()=> {
         assert.equal(1, 1);
     });
 });

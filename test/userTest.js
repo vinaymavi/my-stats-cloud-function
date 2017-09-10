@@ -11,10 +11,6 @@ describe("User", ()=> {
     it("Insert", ()=> {
         assert.equal(1, 1);
     });
-
-    it("Delete", ()=> {
-        assert.equal(1, 1);
-    });
     it("Find By Fb Id", ()=> {
         assert.equal(1, 1);
     });
