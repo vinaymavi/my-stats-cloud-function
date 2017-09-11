@@ -1,10 +1,6 @@
 /**
  * This cloud function is to store and fetch my-stats extension data.
  */
-
-
-//TODO use multiple files to organized code.
-
 'use strict';
 
 const Datastore = require('@google-cloud/datastore');

@@ -2,27 +2,70 @@
  * Website tests
  */
 const chai = require("chai");
-const Website = require("../src/entities/Website");
+const Website = require("../src/website");
 const assert = chai.assert;
+const data = {
+    "domain": "xyz.com",
+    "port": "8080",
+    "protocol": "https",
+    "duration": 200,
+    "date": "2017-09-11T15:12:25.734Z",
+    "deviceId": "797f9sdf897f89ds798"
+};
+const dataCol = [{
+    "domain": "xyz.com",
+    "port": "8080",
+    "protocol": "https",
+    "duration": 200,
+    "date": "2017-09-11T15:12:25.734Z",
+    "deviceId": "797f9sdf897f89ds798"
+},
+    {
+        "domain": "xyz.com",
+        "port": "8080",
+        "protocol": "https",
+        "duration": 200,
+        "date": "2017-09-11T15:12:25.734Z",
+        "deviceId": "797f9sdf897f89ds798"
+    },
+    {
+        "domain": "xyz.com",
+        "port": "8080",
+        "protocol": "https",
+        "duration": 200,
+        "date": "2017-09-11T15:12:25.734Z",
+        "deviceId": "797f9sdf897f89ds798"
+    },
+    {
+        "domain": "xyz.com",
+        "port": "8080",
+        "protocol": "https",
+        "duration": 200,
+        "date": "2017-09-11T15:12:25.734Z",
+        "deviceId": "797f9sdf897f89ds798"
+    }
+];
+
 describe("Website", ()=> {
-    it("Should Empty", (done)=> {
-        const web = new Website({"site": ""});
-        web.list()
+    it("Insert", (done)=> {
+        Website.save(data)
             .then((results)=> {
-                const entities = results[0];
-                assert.equal(0, entities.length);
+                assert.equal(1, 1);
                 done();
             })
-            .catch((err)=> {
-                assert.equal(1, 0);
-                done();
+            .catch(()=> {
+
             });
     });
-    it("Insert", ()=> {
-        assert.equal(1, 1);
-    });
     it("Bulk Insert", ()=> {
-        assert.equal(1, 1);
+        Website.save(dataCol)
+            .then((results)=> {
+                assert.equal(1, 1);
+                done();
+            })
+            .catch(()=> {
+
+            });
     });
     it("Should be valid", ()=> {
         assert.equal(1, 1);
