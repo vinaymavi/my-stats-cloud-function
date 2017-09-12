@@ -3,45 +3,35 @@
  */
 'use strict';
 
-const Datastore = require('@google-cloud/datastore');
 const express = require('express');
-const myApp = express.Router({mergeParams:true});
-// Instantiates a client
-const datastore = Datastore();
-const KIND = "website";
+const websiteApp = express.Router({mergeParams: true});
+const util = require("util");
+const Website = require("./src/website");
 
-exports.set = function set(req, res) {
-    console.log(req.body);
-    saveEntity(JSON.parse(req.body.value));
-    res.status(200).send(JSON.stringify(req.body));
-};
-
-function saveEntity(data) {
-    console.log("Auto generated key = "+datastore.int(10).toString());
-    const entity = {
-        key: createKey(data.startTime),
-        data: data
-    };
-
-    datastore.save(entity)
-        .then(()=> {
-            console.log(entity + "Saved.")
+websiteApp.post("/save", function (req, resp) {
+    console.log(util.inspect(req.body.value));
+    const data = JSON.parse(req.body.value);
+    Website.save(data)
+        .then((result)=> {
+            console.log(util.inspect(result));
+            resp.status(200).send({"message": "Data saved successfully"});
         })
-        .catch(()=> {
-            console.error("Error to save entity.")
+        .catch((err)=> {
+            console.error(util.inspect(err));
+            resp.status(500).send({"message": "Error in data saving"});
         });
-}
 
-function createKey(key) {
-    return datastore.key([KIND, key])
-}
 
-myApp.get("/sub",function (req, resp) {
-    resp.send("This is sub");
 });
-myApp.all("*",function (req, resp) {
-    resp.send("This is ********");
+
+websiteApp.get("/save", function (req, resp) {
+    resp.send("Not supported request type");
 });
 
 
-exports.myroute = myApp;
+websiteApp.all("*", function (req, resp) {
+    resp.send("This is not a valid request");
+});
+
+
+exports.website = websiteApp;
